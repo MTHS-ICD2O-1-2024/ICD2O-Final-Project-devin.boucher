@@ -11,6 +11,7 @@
   padding-left: 15pt;
   padding-right: 15pt;
   padding-top: 15pt;
+  text-align: center;
 }
 
 .mdl-textfield__error {
@@ -23,6 +24,14 @@
   font-size: 1.25rem;
 }
 
+body,
+.page-content,
+h1,
+label,
+select {
+  text-align: center;
+}
+
 body {
   background-color: rgb(140 78 216);
 }
@@ -31,11 +40,9 @@ img {
   height: 200px;
 }
 
-#spinner {
-  width: 300px;
-  height: 300px;
-  border: 2px solid black;
-  border-radius: 50%;
-  margin: 20px auto 0;
-  position: relative;
+#section-count {
+  text-align: center;
+  width: 200px;
+  max-width: 80vw;
+  margin: 0 auto;
 }
