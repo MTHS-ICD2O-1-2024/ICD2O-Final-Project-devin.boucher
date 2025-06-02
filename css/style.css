@@ -46,3 +46,12 @@ img {
   max-width: 80vw;
   margin: 0 auto;
 }
+
+.center {
+  text-align: center;
+}
+
+.spinner-image {
+  margin: 0 auto;
+  max-width: 300px;
+}
