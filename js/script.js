@@ -6,26 +6,25 @@
 
 'use strict'
 
-let currentRotation = 0
 let currentDisplayMode = "colors"
 
 function spinSpinner() {
-  let spins = Math.floor(Math.random() * 5) + 3
   let randomDegrees = Math.floor(Math.random() * 360)
-  currentRotation = currentRotation + spins * 360 + randomDegrees
 
   let spinners = document.getElementsByClassName("spinner-image")
-  var index = 0
-  while (index < spinners.length) {
-    let spinner = spinners[index]
+  let index = 0
 
-    if (spinner.style.display === "block") {
-      spinner.style.transition = "transform 3s ease-out"
-      spinner.style.transform = "rotate(" + currentRotation + "deg)"
-    } else {
-      spinner.style.transform = "rotate(0deg)"
-      spinner.style.transition = ""
+  while (index < spinners.length) {
+    // Reference: How to use item(index) with HTMLCollections
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection/item
+    let spinner = spinners.item(index)
+
+    // Reference: How the .hidden property works
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
+    if (spinner.hidden === false) {
+      spinner.style.transform = "rotate(" + randomDegrees + "deg)"
     }
+
     index = index + 1
   }
 }
@@ -46,23 +45,21 @@ function updateSpinnerImage() {
   }
 
   let spinners = document.getElementsByClassName("spinner-image")
-  var index = 0
+  let index = 0
+
   while (index < spinners.length) {
-    let spinner = spinners[index]
+    let spinner = spinners.item(index)
 
     if (spinner.id === spinnerId) {
-      spinner.style.display = "block"
-      spinner.style.transform = "rotate(0deg)"
-      spinner.style.transition = ""
+      spinner.hidden = false
     } else {
-      spinner.style.display = "none"
-      spinner.style.transform = "rotate(0deg)"
-      spinner.style.transition = ""
+      spinner.hidden = true
     }
+
     index = index + 1
   }
 }
 
-window.onload = function() {
+window.onload = function () {
   updateSpinnerImage()
 }
