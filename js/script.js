@@ -23,7 +23,9 @@ function spinSpinner () {
     // Reference: How the .hidden property works
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
     if (spinner.hidden === false) {
-      spinner.style.transform = 'rotate(' + randomDegrees + 'deg'
+// Rotate the spinner element by a random number of degrees
+// Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
+spinner.style.transform = 'rotate(' + randomDegrees + 'deg)';
     }
 
     index = index + 1
