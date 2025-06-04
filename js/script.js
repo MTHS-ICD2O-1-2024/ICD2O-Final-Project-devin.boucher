@@ -6,23 +6,23 @@
 
 'use strict'
 
-let currentDisplayMode = "colors"
+let currentDisplayMode = 'colors'
 
 function spinSpinner() {
-  let randomDegrees = Math.floor(Math.random() * 360)
+  const randomDegrees = Math.floor(Math.random() * 360)
 
-  let spinners = document.getElementsByClassName("spinner-image")
+  const spinners = document.getElementsByClassName('spinner-image')
   let index = 0
 
   while (index < spinners.length) {
     // Reference: How to use item(index) with HTMLCollections
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection/item
-    let spinner = spinners.item(index)
+    const spinner = spinners.item(index)
 
     // Reference: How the .hidden property works
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
     if (spinner.hidden === false) {
-      spinner.style.transform = "rotate(" + randomDegrees + "deg)"
+      spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
     }
 
     index = index + 1
@@ -35,20 +35,20 @@ function setDisplayMode(mode) {
 }
 
 function updateSpinnerImage() {
-  let sectionCount = document.getElementById("section-count").value
-  let spinnerId = ""
+  const sectionCount = document.getElementById('section-count').value
+  let spinnerId = ''
 
-  if (currentDisplayMode === "colors") {
-    spinnerId = "spinnerC" + sectionCount
+  if (currentDisplayMode === 'colors') {
+    spinnerId = 'spinnerC' + sectionCount
   } else {
-    spinnerId = "spinnerN" + sectionCount
+    spinnerId = 'spinnerN' + sectionCount
   }
 
-  let spinners = document.getElementsByClassName("spinner-image")
+  const spinners = document.getElementsByClassName('spinner-image')
   let index = 0
 
   while (index < spinners.length) {
-    let spinner = spinners.item(index)
+    const spinner = spinners.item(index)
 
     if (spinner.id === spinnerId) {
       spinner.hidden = false
