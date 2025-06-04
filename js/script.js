@@ -8,7 +8,7 @@
 
 let currentDisplayMode = 'colors'
 
-function spinSpinner() {
+function spinSpinner () {
   const randomDegrees = Math.floor(Math.random() * 360)
 
   const spinners = document.getElementsByClassName('spinner-image')
@@ -22,19 +22,19 @@ function spinSpinner() {
     // Reference: How the .hidden property works
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
     if (spinner.hidden === false) {
-      spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
+      spinner.style.transform = 'rotate(' + randomDegrees + 'deg'
     }
 
     index = index + 1
   }
 }
 
-function setDisplayMode(mode) {
+function setDisplayMode (mode) {
   currentDisplayMode = mode
   updateSpinnerImage()
 }
 
-function updateSpinnerImage() {
+function updateSpinnerImage () {
   const sectionCount = document.getElementById('section-count').value
   let spinnerId = ''
 
