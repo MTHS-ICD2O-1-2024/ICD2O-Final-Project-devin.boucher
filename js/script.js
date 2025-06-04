@@ -6,10 +6,9 @@
 
 'use strict'
 
-// eslint-disable-next-line no-unused-vars
-
 let currentDisplayMode = 'colors'
 
+// eslint-disable-next-line no-unused-vars
 function spinSpinner () {
   const randomDegrees = Math.floor(Math.random() * 360)
 
@@ -31,6 +30,7 @@ function spinSpinner () {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 function setDisplayMode (mode) {
   currentDisplayMode = mode
   updateSpinnerImage()
