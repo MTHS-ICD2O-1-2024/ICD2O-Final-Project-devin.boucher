@@ -1,62 +1,186 @@
 <!DOCTYPE html>
 <html lang="en-ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Spinner App" />
+    <meta name="keywords" content="mths, ics2o" />
+    <meta name="author" content="Devin Boucher" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.deep_purple-indigo.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Spinner</title>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="description" content="Spinner App" />
-  <meta name="keywords" content="mths, ics2o" />
-  <meta name="author" content="Devin Boucher" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-indigo.min.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <title>Spinner</title>
-</head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Spinner</span>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <h1>Spinner</h1>
+          <label for="section-count">Number of Sections:</label>
+          <select
+            id="section-count"
+            class="mdl-textfield__input"
+            onchange="updateSpinnerImage()"
+          >
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <div
+            id="display-mode-buttons"
+            style="text-align: center; margin-top: 20px"
+          >
+            <span>Display Mode:</span><br /><br />
+            <button
+              class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+              onclick="setDisplayMode('colors')"
+            >
+              Colors
+            </button>
+            <button
+              class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+              onclick="setDisplayMode('numbers')"
+            >
+              Numbers
+            </button>
+          </div>
+          <br /><br />
+          <div class="center">
+            <!-- Spinner Images -->
+            <img
+              class="spinner-image"
+              id="spinnerC3"
+              src="./images/spinnerC3.png"
+              alt="spinner C 3"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerC4"
+              src="./images/spinnerC4.png"
+              alt="spinner C 4"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerC5"
+              src="./images/spinnerC5.png"
+              alt="spinner C 5"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerC6"
+              src="./images/spinnerC6.png"
+              alt="spinner C 6"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerC7"
+              src="./images/spinnerC7.png"
+              alt="spinner C 7"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerC8"
+              src="./images/spinnerC8.png"
+              alt="spinner C 8"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerC9"
+              src="./images/spinnerC9.png"
+              alt="spinner C 9"
+              onclick="spinSpinner()"
+              hidden
+            />
 
-<body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Spinner</span>
-      </div>
-    </header>
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <h1>Spinner</h1>
-        <label for="section-count">Number of Sections:</label>
-        <select id="section-count" class="mdl-textfield__input">
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-        </select>
-        <div id="display-mode-buttons" style="text-align: center; margin-top: 20px">
-          <span>Display Mode:</span><br /><br />
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-            onclick="setDisplayMode('colors')">
-            Colors
-          </button>
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-            onclick="setDisplayMode('numbers')">
-            Numbers
-          </button>
+            <img
+              class="spinner-image"
+              id="spinnerN3"
+              src="./images/spinnerN3.png"
+              alt="spinner N 3"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerN4"
+              src="./images/spinnerN4.png"
+              alt="spinner N 4"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerN5"
+              src="./images/spinnerN5.png"
+              alt="spinner N 5"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerN6"
+              src="./images/spinnerN6.png"
+              alt="spinner N 6"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerN7"
+              src="./images/spinnerN7.png"
+              alt="spinner N 7"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerN8"
+              src="./images/spinnerN8.png"
+              alt="spinner N 8"
+              onclick="spinSpinner()"
+              hidden
+            />
+            <img
+              class="spinner-image"
+              id="spinnerN9"
+              src="./images/spinnerN9.png"
+              alt="spinner N 9"
+              onclick="spinSpinner()"
+              hidden
+            />
+          </div>
+          <img id="arrow" src="./images/arrow.png" alt="arrow" />
         </div>
-        <br /><br />
-        <div class="center">
-          <img src="./images/arrow.png" alt="arrow" />
-          <div id="spinner"></div>
-        </div>
-      </div>
-    </main>
-  </div>
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-</body>
+      </main>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
