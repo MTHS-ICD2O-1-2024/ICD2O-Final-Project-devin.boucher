@@ -20,9 +20,10 @@ function spinSpinner () {
     // Reference: How the .hidden property works
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
     if (spinner.hidden === false) {
-      // Rotate the spinner element by a random number of degrees
-      // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
-      spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
+    // Rotate the spinner element by a random number of degrees
+    // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
+    // Reference: https://www.w3schools.com/jsref/prop_style_transform.asp
+    spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
     }
   }
 }
@@ -52,6 +53,8 @@ function updateSpinnerImage () {
   const spinners = document.getElementsByClassName('spinner-image')
 
   for (const spinner of spinners) {
+    // Reference: How the .id property works
+    // https://www.w3schools.com/html/html_id.asp
     if (spinner.id === spinnerId) {
       spinner.hidden = false
     } else {
