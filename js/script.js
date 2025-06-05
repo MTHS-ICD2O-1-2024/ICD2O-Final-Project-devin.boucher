@@ -23,7 +23,7 @@ function spinSpinner () {
     // Rotate the spinner element by a random number of degrees
     // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
     // Reference: https://www.w3schools.com/jsref/prop_style_transform.asp
-    spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
+      spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
     }
   }
 }
