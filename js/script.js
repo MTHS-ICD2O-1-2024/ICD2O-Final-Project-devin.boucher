@@ -6,57 +6,60 @@
 
 'use strict'
 
-let currentDisplayMode = "colors"
+let currentDisplayMode = 'colors'
 
-function spinSpinner() {
-  let randomDegrees = Math.floor(Math.random() * 360)
+// eslint-disable-next-line no-unused-vars
+function spinSpinner () {
+  const randomDegrees = Math.floor(Math.random() * 360)
 
-  let spinners = document.getElementsByClassName("spinner-image")
-  let index = 0
+  const spinners = document.getElementsByClassName('spinner-image')
 
-  while (index < spinners.length) {
-    // Reference: How to use item(index) with HTMLCollections
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection/item
-    let spinner = spinners.item(index)
-
+  // Reference: How the for...of loop works
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+  for (const spinner of spinners) {
     // Reference: How the .hidden property works
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
     if (spinner.hidden === false) {
-      spinner.style.transform = "rotate(" + randomDegrees + "deg)"
+    // Rotate the spinner element by a random number of degrees
+    // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
+    // Reference: https://www.w3schools.com/jsref/prop_style_transform.asp
+      spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
     }
-
-    index = index + 1
   }
 }
 
-function setDisplayMode(mode) {
-  currentDisplayMode = mode
+// eslint-disable-next-line no-unused-vars
+function setDisplayMode () {
+  // Toggle between 'colors' and 'numbers'
+  if (currentDisplayMode === 'colors') {
+    currentDisplayMode = 'numbers'
+  } else {
+    currentDisplayMode = 'colors'
+  }
+
   updateSpinnerImage()
 }
 
-function updateSpinnerImage() {
-  let sectionCount = document.getElementById("section-count").value
-  let spinnerId = ""
+function updateSpinnerImage () {
+  const sectionCount = document.getElementById('section-count').value
+  let spinnerId = ''
 
-  if (currentDisplayMode === "colors") {
-    spinnerId = "spinnerC" + sectionCount
+  if (currentDisplayMode === 'colors') {
+    spinnerId = 'spinnerC' + sectionCount
   } else {
-    spinnerId = "spinnerN" + sectionCount
+    spinnerId = 'spinnerN' + sectionCount
   }
 
-  let spinners = document.getElementsByClassName("spinner-image")
-  let index = 0
+  const spinners = document.getElementsByClassName('spinner-image')
 
-  while (index < spinners.length) {
-    let spinner = spinners.item(index)
-
+  for (const spinner of spinners) {
+    // Reference: How the .id property works
+    // https://www.w3schools.com/html/html_id.asp
     if (spinner.id === spinnerId) {
       spinner.hidden = false
     } else {
       spinner.hidden = true
     }
-
-    index = index + 1
   }
 }
 
