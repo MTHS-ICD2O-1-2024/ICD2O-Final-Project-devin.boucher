@@ -13,13 +13,10 @@ function spinSpinner () {
   const randomDegrees = Math.floor(Math.random() * 360)
 
   const spinners = document.getElementsByClassName('spinner-image')
-  let index = 0
 
-  while (index < spinners.length) {
-    // Reference: How to use item(index) with HTMLCollections
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection/item
-    const spinner = spinners.item(index)
-
+  // Reference: How the for...of loop works
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+  for (const spinner of spinners) {
     // Reference: How the .hidden property works
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden
     if (spinner.hidden === false) {
@@ -27,14 +24,18 @@ function spinSpinner () {
       // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
       spinner.style.transform = 'rotate(' + randomDegrees + 'deg)'
     }
-
-    index = index + 1
   }
 }
 
 // eslint-disable-next-line no-unused-vars
-function setDisplayMode (mode) {
-  currentDisplayMode = mode
+function setDisplayMode () {
+  // Toggle between 'colors' and 'numbers'
+  if (currentDisplayMode === 'colors') {
+    currentDisplayMode = 'numbers'
+  } else {
+    currentDisplayMode = 'colors'
+  }
+
   updateSpinnerImage()
 }
 
@@ -49,18 +50,13 @@ function updateSpinnerImage () {
   }
 
   const spinners = document.getElementsByClassName('spinner-image')
-  let index = 0
 
-  while (index < spinners.length) {
-    const spinner = spinners.item(index)
-
+  for (const spinner of spinners) {
     if (spinner.id === spinnerId) {
       spinner.hidden = false
     } else {
       spinner.hidden = true
     }
-
-    index = index + 1
   }
 }
 
